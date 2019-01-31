@@ -6,7 +6,34 @@ namespace week4peter
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //Countryside Ontario = new Countryside();
+            //Ontario.run();
+            LearningExample L = new LearningExample();
+            L.run();
+        }
+    }
+
+    class LearningExample
+    {
+        public void run()
+        {
+            Village Toronto;
+            Village a;
+            Village b;
+            Toronto = new Village();
+            a = Toronto;
+
+            Toronto = new Village();
+            b = Toronto;
+
+            if (a == b)
+            {
+                Console.WriteLine("same");
+            }
+            else
+            {
+                Console.WriteLine("different obj ref");
+            }
         }
     }
     class Village
@@ -27,6 +54,16 @@ namespace week4peter
         public Village maple;
         public Village Toronto;
         public Village Ajax;
+        public Village Head;
+        public Village Tail;
+        public Village Temp;
+        public Village Current;
+
+        public void run()
+        {
+            this.MapInitializer();
+            this.LookForAstrilde();
+        }
 
         public void MapInitializer()
         {
@@ -45,9 +82,18 @@ namespace week4peter
 
         }
 
-        public void LookForAstildeHere
+        public void LookForAstrilde()
         {
-
+            Current = maple;
+            if (Current.isAstrildeHere)
+            {
+                Console.WriteLine("Found astrilde");
+                return;
+            }
+            else
+            {
+                Current = Current.nextVillage;
+            }
         }
     }
 }
